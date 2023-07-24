@@ -1,0 +1,51 @@
+
+application.properties (creación de BD con CodeFirst):
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/nombreBdQueAlojaAjedrez
+spring.datasource.username=postgres
+spring.datasource.password= 
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
+springdoc.swagger-ui.path=/doc/swagger-ui.html
+
+*****************************************************************************************************
+
+Instrucciones Juego Ajedrez:
+
+1. Crear partida (POST):
+http://localhost:8080/crearPartida
+
+2. Guardar partida actual (POST):
+http://localhost:8080/guardar
+
+3. Obtener partida actual (GET):
+http://localhost:8080/obtener
+
+4. Traer partida desde BD por ID (GET):
+http://localhost:8080/traerPartidaBase/{id}
+
+5. Traer historial de movimientos de una partida por ID (GET)
+http://localhost:8080/traerMovimientosDeUnaPartida/{id}
+
+6. Mover pieza (POST):
+http://localhost:8080/mover/{filaOrigen}/{columnaOrigen}/{filaDestino}/{columnaDestino}
+
+EJEMPLOS JAQUE MATE:
+1. Mate del loco:
+http://localhost:8080/mover/6/5/5/5
+http://localhost:8080/mover/1/4/3/4
+http://localhost:8080/mover/6/6/4/6
+http://localhost:8080/mover/0/3/4/7
+
+2. Mate del pastor:
+http://localhost:8080/mover/6/4/4/4
+http://localhost:8080/mover/1/4/3/4
+http://localhost:8080/mover/7/5/4/2
+http://localhost:8080/mover/0/1/2/2
+http://localhost:8080/mover/7/3/3/7
+http://localhost:8080/mover/0/6/2/5
+http://localhost:8080/mover/3/7/1/5
+
+
